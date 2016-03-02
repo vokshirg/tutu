@@ -1,0 +1,53 @@
+
+
+<p>
+  <strong><%= t('.name') %></strong>
+  <%= @route.name %>
+  
+  <div class="field">
+
+    <% if @route.railway_stations.empty? %>
+      <strong><%= t('.no_stations') %></strong>
+    <% else %>
+      <strong><%= t('.have_stations') %></strong>
+      <table class="table">
+        <tr>
+          <th><%= t('.sort_number') %></th>
+          <th><%= t('.station_name') %></th>
+          <th><%= t('.arrive_time') %></th>
+          <th><%= t('.leave_time') %></th>
+        </tr>
+          <% @route.railway_stations.each do |st| %>
+            <tr>
+              <%= form_tag(change_route_params_admin_railway_station_path(st), method: :patch, class: "") do %>
+                <%= hidden_field_tag(:route_id, @route.id) %>
+                <td><%= text_field_tag :sort_number, st.sort_number(@route), style: "max-width: 20px; text-align: center" %></td>
+                <td><%= st.title %></td>
+                <td><%= text_field_tag(:arrive_time, st.arrive_time(@route)) %></td>
+                <td><%= text_field_tag(:leave_time, st.leave_time(@route)) %></td>
+                <td><%= submit_tag t('.save') %></td>
+              <% end %>
+
+            </tr>
+        <% end %>
+      </table>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if @route.trains.empty? %>
+      <strong><%= t('.no_trains') %></strong>
+    <% else %>
+      <strong><%= t('.have_trains') %></strong>
+      <ul>
+        <% @route.trains.each do |train| %>
+            <li> <%= link_to train.number, admin_train_path(train) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</p>
+
+<%= link_to t('common.edit'), edit_admin_route_path(@route) , class: 'btn btn-sm btn-warning'%> |
+<%= link_to t('common.back'), admin_routes_path , class: 'btn btn-sm btn-default'%>
+<!-- <%= link_to t('common.back'), onclick = "history.back();" , class: 'btn btn-sm btn-default'%> -->

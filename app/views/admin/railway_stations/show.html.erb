@@ -1,0 +1,9 @@
+
+
+<p>
+  <strong><%= t('.title') %></strong>
+  <%= @railway_station.title %>
+</p>
+
+<%= link_to t('common.edit'), edit_admin_railway_station_path(@railway_station) , class: 'btn btn-sm btn-warning'%> |
+<%= link_to t('common.back'), admin_railway_stations_path , class: 'btn btn-sm btn-default'%>

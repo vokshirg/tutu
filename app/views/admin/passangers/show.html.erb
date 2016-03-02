@@ -1,0 +1,27 @@
+<h2>Пассажир</h2>
+<p>
+  <p><b>Пассажир:</b> <%= @passanger.name %></p>
+
+
+  <%= link_to t('common.edit'), edit_admin_passanger_path(@passanger) , class: 'btn btn-sm btn-warning'%>
+  <%= link_to t('common.back'), admin_passangers_path , class: 'btn btn-sm btn-default'%>
+  <h4>Билеты:</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Маршрут</th>
+        <th>№ Поезда</th>
+        <th>Место</th>
+        <th>Покупатель:</th>
+        <th>Билет на пассажира:</th>
+        <th>Ссылки</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= render @passanger.tickets if @passanger.tickets %></p>
+    </tbody>
+  </table>
+
+
+</p>

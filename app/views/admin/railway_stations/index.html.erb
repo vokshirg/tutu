@@ -1,0 +1,22 @@
+
+
+<h1><%= t('.title') %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t('.station_title') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @railway_stations %>
+  </tbody>
+</table>
+
+
+
+<%= link_to t('.new_station'), new_admin_railway_station_path , class: 'btn btn-success' %>
+
+

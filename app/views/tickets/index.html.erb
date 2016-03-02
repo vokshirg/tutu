@@ -1,0 +1,21 @@
+<h1>Список билетов</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Маршрут</th>
+      <th>№ Поезда</th>
+      <th>Место</th>
+      <th>Билет на пассажира:</th>
+      <th>Ссылки</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render current_passanger.tickets %>
+  </tbody>
+</table>
+
+
+
+<%= link_to 'Купить новый билет', search_path, class: 'btn btn-success' %>
