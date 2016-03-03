@@ -1,11 +1,9 @@
-<%= form_for([:admin, @railway_station]) do |f| %>
-  <%= render 'common/errors', resource: @railway_station %>
+<%= form_for([:admin, station], html: { style: "display: #{ hidden ? 'none' : 'block' }" , class: 'form-inline'} )do |f| %>
+  <%= render 'common/errors', resource: station %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+  <div class="form-group form-group-sm">
+    <%= f.label :title if action_name != 'index' %>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
-  <div class="actions">
-    <%= f.submit "#{@railway_station.new_record? ? t('common.create') : t('common.update')}" %>
-  </div>
+  <%= f.submit "#{station.new_record? ? t('common.create') : t('common.update')}", class: 'btn btn-sm btn-success' %>
 <% end %>

@@ -23,7 +23,7 @@ class Admin::RailwayStationsController < Admin::BaseController
   def create
     @railway_station = RailwayStation.new(railway_station_params)
     if @railway_station.save
-      redirect_to [:admin, @railway_station], notice: 'Станция была успешно создана.'
+      redirect_to admin_railway_stations_path, notice: 'Станция была успешно создана.'
     else
       render :new
     end
@@ -32,7 +32,7 @@ class Admin::RailwayStationsController < Admin::BaseController
   # PATCH/PUT /railway_stations/1
   def update
     if @railway_station.update(railway_station_params)
-      redirect_to [:admin, @railway_station], notice: 'Станция была успешно обновлена.'
+      redirect_to admin_railway_stations_path, notice: 'Станция была успешно обновлена.'
     else
       render :edit
     end
