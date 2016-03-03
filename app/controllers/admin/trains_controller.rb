@@ -28,7 +28,7 @@ class Admin::TrainsController < Admin::BaseController
   def create
     @train = Train.new(train_params)
     if @train.save
-      redirect_to [:admin, @train], notice: 'Поезд был успешно создан.'
+      redirect_to admin_trains_path, notice: 'Поезд был успешно создан.'
     else
       render :new
     end
@@ -37,7 +37,7 @@ class Admin::TrainsController < Admin::BaseController
   # PATCH/PUT /trains/1
   def update
     if @train.update(train_params)
-      redirect_to [:admin, @train], notice: 'Поезд был успешно изменен.'
+      redirect_to admin_trains_path, notice: 'Поезд был успешно изменен.'
     else
       render :edit
     end

@@ -9,6 +9,7 @@ ru:
     create: 'Создать'
     update: 'Изменить'
     errors: 'При заполнении формы возникли ошибки'
+    cancel: 'Отмена'
 
   admin:
     railway_stations:
@@ -22,6 +23,14 @@ ru:
         station_title: 'Название'
       show:
         title: 'Название:'
+
+    trains:
+      show:
+        number: 'Номер поезда'
+        reverse_sort_true: 'С хвоста '
+        reverse_sort_false: 'С головы '
+        current_station: 'Текущая станция'
+        route: 'Маршрут'
 
 
     tickets:

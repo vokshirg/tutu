@@ -1,29 +1,42 @@
-<%= form_for([:admin, @train]) do |f| %>
+<%= form_for([:admin, @train], html: { class: 'form-horizontal'}) do |f| %>
   <%= render 'common/errors', resource: @train %>
 
-  <div class="field">
-    <%= f.label :number %>
-    <%= f.text_field :number %>
+  <div class="form-group">
+    <%= f.label :number, class: 'col-sm-2' %>
+    <div class="col-sm-10">
+      <%= f.text_field :number, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.radio_button(:reverse_sort, true) %>
-    <%= f.label(:reverse_sort_true) %>
-    <%= f.radio_button(:reverse_sort, false) %>
-    <%= f.label(:reverse_sort_false) %>
+  <div class="form-group">
+    <%= f.label :current_station, class: 'col-sm-2' %>
+    <div class="col-sm-10">
+      <%= f.collection_select :current_station_id, RailwayStation.all, :id, :title, {prompt: 'Выберите станцию'}, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :current_station %>
-    <%= f.collection_select :current_station_id, RailwayStation.all, :id, :title, {prompt: 'Выберите станцию'} %>
+  <div class="form-group">
+    <%= f.label :route, class: 'col-sm-2' %>
+    <div class="col-sm-10">
+      <%= f.collection_select :route_id, Route.all, :id, :name, {prompt: 'Выберите маршрут'}, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :route %>
-    <%= f.collection_select :route_id, Route.all, :id, :name, {prompt: 'Выберите маршрут'} %>
+  <div class="form-group">
+    <%= f.label 'Сортировка вагонов', class: 'col-sm-2' %>
+    <div class="col-sm-10">
+      <div class="radio-inline">
+        <%= f.radio_button(:reverse_sort, true) %>
+        <%= f.label(:reverse_sort_true) %>
+      </div>
+      <div class="radio-inline">
+        <%= f.radio_button(:reverse_sort, false) %>
+        <%= f.label(:reverse_sort_false) %>
+      </div>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "#{@train.new_record? ? t('common.create') : t('common.update')}" %>
+  <div class="form-group col-sm-12">
+    <%= f.submit "#{@train.new_record? ? t('common.create') : t('common.update')}", class: "btn btn-sm btn-success" %>
   </div>
 <% end %>

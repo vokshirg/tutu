@@ -16,8 +16,8 @@ ru:
 
       train:
         number: 'Номер поезда'
-        reverse_sort_true: 'Сортировка с хвоста'
-        reverse_sort_false: 'с головы'
+        reverse_sort_true: 'С хвоста '
+        reverse_sort_false: 'С головы '
         current_station: 'Текущая станция'
         route: 'Маршрут'
 
