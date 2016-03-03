@@ -1,7 +1,7 @@
 # $(window).onload ->
   # $('.places').hide()
 
-jQuery(document).ready ->
+ready = ->
   $('.places').hide()
   $('.wagon_type_select').change ->
     type = @.value
@@ -41,3 +41,6 @@ jQuery(document).ready ->
         side_top_places.hide()
         side_bottom_places.hide()
         seat_places.show()
+
+$(document).ready(ready)
+$(document).on('page:load', ready)

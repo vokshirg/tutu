@@ -1,4 +1,4 @@
-$(document).ready ->
+ready = ->
   $('.edit_station').click (e)->
     e.preventDefault()
     station_id = $(@).data('stationId')
@@ -15,3 +15,6 @@ $(document).ready ->
       $('.edit_station.btn-danger').not(@).click()
     else
       $(@).html "Редактировать"
+
+$(document).ready(ready)
+$(document).on('page:load', ready)

@@ -1,4 +1,4 @@
-$(document).ready ->
+ready = ->
   $('.train_edit_button').click (e)->
     e.preventDefault()
     train_id = $(@).data 'trainId'
@@ -19,3 +19,7 @@ $(document).ready ->
 
     parent_tr.toggle()
     tr.toggle()
+
+    
+$(document).ready(ready)
+$(document).on('page:load', ready)
